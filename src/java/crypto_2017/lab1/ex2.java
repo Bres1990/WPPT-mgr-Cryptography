@@ -29,7 +29,7 @@ public class ex2 {
      */
     public static void main(String args[]) {
         lastNumbers = new Stack<>();
-        glibc(new BigInteger("1"), 36);
+        glibc(new BigInteger("first"), 36);
     }
 
     @Nullable

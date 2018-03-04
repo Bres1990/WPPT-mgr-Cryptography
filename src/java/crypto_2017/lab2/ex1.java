@@ -23,7 +23,7 @@ public class ex1 {
 
         Output = new ArrayList<>();
 
-        System.out.println("-------- 1 --------");
+        System.out.println("-------- first --------");
         RC4(16, 16).iterator().forEachRemaining(System.out::println);
         System.out.println("-------- 2 --------");
         RC4(64, 64).iterator().forEachRemaining(System.out::println);

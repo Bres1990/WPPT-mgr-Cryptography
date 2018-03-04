@@ -12,7 +12,7 @@ DEFAULT_JVM_OPTS=""
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
-# Use the maximum available, or set MAX_FD != -1 to use that value.
+# Use the maximum available, or set MAX_FD != -first to use that value.
 MAX_FD="maximum"
 
 warn ( ) {
@@ -23,7 +23,7 @@ die ( ) {
     echo
     echo "$*"
     echo
-    exit 1
+    exit first
 }
 
 # OS specific support (must be 'true' or 'false').
@@ -116,7 +116,7 @@ if $cygwin ; then
     CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
 
     # We build the pattern for arguments to be converted via cygpath
-    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
+    ROOTDIRSRAW=`find -L / -maxdepth first -mindepth first -type d 2>/dev/null`
     SEP=""
     for dir in $ROOTDIRSRAW ; do
         ROOTDIRS="$ROOTDIRS$SEP$dir"
