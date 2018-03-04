@@ -1,88 +1,94 @@
 package cryptography_2018.first;
 
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import java.math.BigInteger;
 
 /**
  * Created by Adam on 2018-03-04.
  */
 
-@RequiredArgsConstructor
-public class Predictor {
+public abstract class Predictor {
 
-    @NonNull
-    private long x0, x1, x2, x3;
-    private long mod;
-
-    public void predict() throws Exception {
-        System.out.println("================");
-        System.out.println("PREDICTION -- x0: " + x0 + " x1: " + x1 + " x2: " + x2 + " x3: " + x3);
-        long gcd = GCD(x2 - x1, x1 - x0);
-
-        if (gcd == 0) {
-           throw new Exception("GCD can't be 0");
-        }
-        long lcm = Math.abs((x2 - x1) * (x1 - x0)) / gcd;
-
-        System.out.println("gcd: " + gcd + " lcm: " + lcm);
-        mod = calcModulus(lcm);
-        System.out.println("mod: " + mod);
-        long temp1 = (x3 - x2) - (x2 - x1);
-        long temp2 = (x2 - x1) - (x1 - x0);
-
-        System.out.println("temp1: " + temp1);
-        System.out.println("temp2: " + temp2);
-
-        if (temp1 < 0) {
-            temp1 += mod;
-        }
-        if (temp2 < 0) {
-            temp2 += mod;
-        }
-
-        long a = calcA(temp1, temp2);
-        long b = (x0 * a + mod) % mod;
-
-        System.out.println("Modulus = " + mod);
-        System.out.println("Multiplier = " + a);
-        System.out.println("Increment = " + b);
-
-        LCG lcg = new LCG((long)Math.pow(2, 32), a, b, x3);
-        System.out.println("Next value from LCG: " + lcg.nextNumber());
+    public Predictor(Generator generator, int predictions) {
+        this(populate(generator, predictions));
     }
 
-    private long calcA(long temp1, long temp2) {
-        float k = 0;
-        float result = ((float) mod * k + (float) temp1) / (float) temp2;
-        while (result != (long) result) {
-            k += 1;
-            result = ((float) mod * k + (float) temp1) / (float) temp2;
+    public Predictor(int[] series) {
+        analyse(series);
+    }
+
+    public abstract int[] predictNext();
+
+    protected abstract void analyse(int[] series);
+
+    public static void guess(Generator generator, Predictor predictor, int tries) {
+        int guessed = 0;
+        for (int i = 0; i < tries; i++) {
+            int actual = generator.getNext();
+            int[] predicted = predictor.predictNext();
+
+            StringBuilder builder = new StringBuilder();
+            builder.append("actual:").append(actual).append("\tpredicted: ");
+            for (int aPredicted : predicted) {
+                builder.append("|").append(aPredicted);
+                if (aPredicted == actual) {
+                    guessed++;
+                    builder.append("\t").append("guessed");
+                } else {
+                    builder.append("\t").append("not guessed");
+                }
+            }
+            System.out.println(builder);
         }
-        return (long) result;
+        System.out.println("guessed " + guessed + "/" + tries + " (" + ((double) guessed / tries) + ")");
     }
 
-    private long calcModulus(long lcm) {
-        long tempMod = Math.abs(((x2 - x1) * lcm / (x1 - x0) - (x3 - x2) * lcm / (x2 - x1)));
+    protected long[] eGCD(long a, long b) {
+        long a0 = a;
+        long b0 = b;
+        long p = 1, q = 0;
+        long r = 0, s = 1;
 
-        return tempMod;
-    }
+        a = Math.abs(a);
+        b = Math.abs(b);
 
-    private long GCD(long a, long b) {
-        long c;
-        while (b != 0)
-        {
+        while (b != 0) {
+            long c = a % b;
+            long quot = a / b;
             a = b;
-            c = a % b;
             b = c;
+            long new_r = p - quot * r;
+            long new_s = q - quot * s;
+            p = r;
+            q = s;
+            r = new_r;
+            s = new_s;
         }
-        return a;
-//        if (a <= 0) {
-//            if (b > 0) {
-//                return b;
-//            } else {
-//                return 0;
-//            }
-//        }
-//        return GCD(b, a % b);
+
+        return new long[]{
+                p * Math.abs(a0) + q * Math.abs(b0),
+                (long) (p * Math.signum(a0)),
+                (long) (q * Math.signum(b0))
+        };
+    }
+
+    protected int gcd(long a, long b) {
+        BigInteger b1 = BigInteger.valueOf(a);
+        BigInteger b2 = BigInteger.valueOf(b);
+        BigInteger gcd = b1.gcd(b2);
+        return gcd.intValue();
+    }
+
+    protected int gcd(long[] a) {
+        int gcd = gcd(a[0], a[1]);
+        for (int i = 2; i < a.length; i++)
+            gcd(gcd, a[i]);
+        return gcd;
+    }
+
+    private static int[] populate(Generator generator, int size) {
+        int[] s = new int[size];
+        for (int i = 0; i < size; i++)
+            s[i] = generator.getNext();
+        return s;
     }
 }

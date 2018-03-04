@@ -6,21 +6,27 @@ package cryptography_2018.first;
 public class App {
 
     public static void main(String[] args) {
-        LCG lcg = new LCG((long) Math.pow(2, 32), 1664525, 1013904223, 0); // mod, multiplier, increment, seed
+//        LCG lcg = new LCG((long) Math.pow(2, 32), 1664525, 1013904223, 0); // mod, multiplier, increment, seed
+//
+//        long x0 = lcg.getSeed();
+//        long x1 = lcg.nextNumber();
+//        long x2 = lcg.nextNumber();
+//        long x3 = lcg.nextNumber();
+//        long x4 = lcg.nextNumber();
+//
+//        System.out.println("First values of LCG: " + x1 + ", " + x2 + ", " + x3 + ", (" + x4 + ")");
+//
+//        Predictor predictor = new Predictor(x0, x1, x2, x3);
+//        try {
+//            predictor.predict();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        long x0 = lcg.getSeed();
-        long x1 = lcg.nextNumber();
-        long x2 = lcg.nextNumber();
-        long x3 = lcg.nextNumber();
-        long x4 = lcg.nextNumber();
-
-        System.out.println("First values of LCG: " + x1 + ", " + x2 + ", " + x3 + ", (" + x4 + ")");
-
-        Predictor predictor = new Predictor(x0, x1, x2, x3);
-        try {
-            predictor.predict();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LCG generator = new LCG(123, 97, 10237, 12312);
+        for (int i = 0; i < 20; i++)
+            generator.getNext();
+        LCGPredictor breaker = new LCGPredictor(generator, 10);
+        Predictor.guess(generator, breaker, 30);
     }
 }

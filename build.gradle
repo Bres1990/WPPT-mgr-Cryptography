@@ -15,4 +15,6 @@ dependencies {
     compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.59'
     compile 'org.projectlombok:lombok:1.16.20'
     annotationProcessor "org.projectlombok:lombok:1.16.20"
+
+    compile group: 'org.ejml', name: 'ejml-all', version: '0.33'
 }
