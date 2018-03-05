@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * Created by Adam on 2018-03-03.
@@ -17,27 +16,19 @@ public class task1 {
 
         constructMatrix();
 
-//        int cnt = 0;
-//        int cur_cnt = 0;
-//
-//        for (int x = 0; x < A.length; x++) {
-//            for (int y = 0; y < A[x].length; y++) {
-//                A[x][y] = (int) Math.round(Math.random());
-//            }
-//        }
-//
-//        for (int x = 0; x < A.length; x++) {
-//            for (int y = 0; y < A[x].length; y++) {
-//                if (A[x][y] == 1) {
-//                    cur_cnt = 0;
-//                    cnt = cnt + clean_block(A, x, y, cur_cnt);
-//                }
-//            }
-//        }
+        int cnt = 0;
+        int cur_cnt = 0;
 
+        for (int x = 0; x < A.length; x++) {
+            for (int y = 0; y < A[x].length; y++) {
+                if (A[x][y] == 1) {
+                    cur_cnt = 0;
+                    cnt = cnt + clean_block(A, x, y, cur_cnt);
+                }
+            }
+        }
 
-        //System.out.println(Arrays.deepToString(A));
-        //System.out.println(cnt);
+        System.out.println("Count of islands: " + cnt);
     }
 
     public static int clean_block(int[][] A, int x_in, int y_in, int cur_cnt) {
@@ -102,9 +93,6 @@ public class task1 {
             line = reader.readLine();
             columns = line.length();
 
-            System.out.println("Rows: " + rows);
-            System.out.println("Columns: " + columns);
-
             A = new int[rows][columns];
 
             reader.reset();
@@ -119,8 +107,6 @@ public class task1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println(Arrays.deepToString(A));
 
     }
 }
