@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="66f6ffb3-2de7-4a99-b600-ab0a211335ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/islands.txt" afterPath="$PROJECT_DIR$/islands.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/islands2.txt" afterPath="$PROJECT_DIR$/islands2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/work/java/task1.java" afterPath="$PROJECT_DIR$/src/java/work/java/task1.java" />
     </list>
     <ignored path="Cryptography.iws" />
@@ -70,11 +72,21 @@
       <file leaf-file-name="task1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/work/java/task1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3586498">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state vertical-scroll-proportion="-0.8902954">
+              <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="islands2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/islands2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/islands.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -405,9 +417,9 @@
         <option value="$PROJECT_DIR$/src/java/cryptography_2018/first/App.java" />
         <option value="$PROJECT_DIR$/src/java/cryptography_2018/first/Predictor.java" />
         <option value="$PROJECT_DIR$/src/java/work/java/islands.txt" />
-        <option value="$PROJECT_DIR$/islands.txt" />
         <option value="$PROJECT_DIR$/islands2.txt" />
         <option value="$PROJECT_DIR$/src/java/work/java/task1.java" />
+        <option value="$PROJECT_DIR$/islands.txt" />
       </list>
     </option>
   </component>
@@ -1273,7 +1285,7 @@
       <workItem from="1520116679850" duration="14839000" />
       <workItem from="1520160399900" duration="5191000" />
       <workItem from="1520171113853" duration="15218000" />
-      <workItem from="1520288272803" duration="3578000" />
+      <workItem from="1520288272803" duration="4400000" />
     </task>
     <task id="LOCAL-00001" summary="Cryptography Lab1 LCG breaking (method 1)">
       <created>1520162504037</created>
@@ -1293,11 +1305,17 @@
       <option name="project" value="LOCAL" />
       <updated>1520290995731</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Work - Java task 1 - implemented counting islands correctly">
+      <created>1520291913402</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520291913402</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90261000" />
+    <option name="totallyTimeSpent" value="91083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1349,7 +1367,8 @@
     <MESSAGE value="Cryptography Lab1 LCG breaking (method 1)" />
     <MESSAGE value="Cryptography Lab1 LCG breaking (matrices method)" />
     <MESSAGE value="Work - Java task 1 - implemented parsing islands data structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work - Java task 1 - implemented parsing islands data structure" />
+    <MESSAGE value="Work - Java task 1 - implemented counting islands correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work - Java task 1 - implemented counting islands correctly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1700,26 +1719,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/islands2.txt">
+    <entry file="file://$PROJECT_DIR$/islands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28691983">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/islands.txt">
+    <entry file="file://$PROJECT_DIR$/islands2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/work/java/task1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3586498">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state vertical-scroll-proportion="-0.8902954">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -22,7 +22,7 @@ public class task1 {
         for (int x = 0; x < A.length; x++) {
             for (int y = 0; y < A[x].length; y++) {
                 if (A[x][y] == 1) {
-                    cur_cnt = 0;
+                    cur_cnt = 1;
                     cnt = cnt + clean_block(A, x, y, cur_cnt);
                 }
             }
@@ -49,6 +49,23 @@ public class task1 {
             clean_block(A, x_in, y_in + 1, cur_cnt);
             cur_cnt = 1;
         }
+        if (coordinate_exists(x_in - 1, y_in - 1, A.length, A[0].length) == 1 && A[x_in - 1][y_in - 1] == 1) {
+            clean_block(A, x_in - 1, y_in - 1, cur_cnt);
+            cur_cnt = 1;
+        }
+        if (coordinate_exists(x_in + 1, y_in + 1, A.length, A[0].length) == 1 && A[x_in + 1][y_in + 1] == 1) {
+            clean_block(A, x_in + 1, y_in + 1, cur_cnt);
+            cur_cnt = 1;
+        }
+        if (coordinate_exists(x_in - 1, y_in + 1, A.length, A[0].length) == 1 && A[x_in - 1][y_in + 1] == 1) {
+            clean_block(A, x_in - 1, y_in + 1, cur_cnt);
+            cur_cnt = 1;
+        }
+        if (coordinate_exists(x_in + 1, y_in - 1, A.length, A[0].length) == 1 && A[x_in + 1][y_in - 1] == 1) {
+            clean_block(A, x_in + 1, y_in - 1, cur_cnt);
+            cur_cnt = 1;
+        }
+
 
         return cur_cnt;
     }
