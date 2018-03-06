@@ -19,5 +19,6 @@
     <orderEntry type="library" name="Gradle: org.ejml:ejml-dsparse:0.33" level="project" />
     <orderEntry type="library" name="Gradle: org.ejml:ejml-fdense:0.33" level="project" />
     <orderEntry type="library" name="Gradle: org.ejml:ejml-zdense:0.33" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.6" level="project" />
   </component>
 </module>

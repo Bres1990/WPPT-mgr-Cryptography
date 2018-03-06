@@ -17,4 +17,6 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:1.16.20"
 
     compile group: 'org.ejml', name: 'ejml-all', version: '0.33'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
 }
