@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by Adam on 2018-03-03.
  */
-public class task1 {
+public class Islands {
 
     static int[][] A;
 

@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by Adam on 2018-03-06.
  */
-public class task3 {
+public class Parentheses {
 
     static char OPEN_SQUARE_BRACKET = '[';
     static char CLOSED_SQUARE_BRACKET = ']';
