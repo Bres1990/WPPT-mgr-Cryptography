@@ -1,0 +1,31 @@
+CUSTOMER
+Id (int)
+FirstName (varchar)
+LastName (varchar)
+BirthDate (Date)
+Country (varchar)
+OfficialDocumentNumber (int)
+NationalId (varchar)
+Watchlisted (boolean)
+
+WATCHLIST PARTY
+Id (int)
+CustomerId (int)
+WatchlistId (int)
+
+WATCHLIST
+Id (int)
+
+ALERT
+Id (int)
+AlertTime (Timestamp)
+WatchlistId (int)
+
+Relations:
+1 Customer To Many Watchlists
+1 Customer To 1 Watchlist Party
+1 Watchlist Party To Many Watchlists
+1 Customer To Many Alerts
+1 Alert To 1 Customer
+1 Watchlist To Many Customers
+1 Watchlist To Many Watchlist Parties

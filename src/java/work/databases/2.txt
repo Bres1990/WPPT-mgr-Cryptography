@@ -1,0 +1,38 @@
+Create queries in SQL and Spark:
+
+a) total numbers of Alerts and Customers
+SQL:
+SELECT
+    (SELECT COUNT(*) FROM Alert) AS alerts,
+    (SELECT COUNT(*) FROM Customer) AS customers
+Spark:
+spark.sql("SELECT COUNT(*) FROM Alert) AS alerts, (SELECT COUNT(*) FROM Customer) AS customers").show();
+
+b) total numbers of alerts grouped by watchlists
+
+SQL:
+SELECT COUNT(*), WatchlistId FROM Alert GROUP BY WatchlistId
+Spark:
+spark.sql("SELECT COUNT(*), WatchlistId FROM Alert GROUP BY WatchlistId").show();
+
+c) total number of customers grouped by country column
+
+SQL:
+SELECT COUNT(*), Country FROM Customer GROUP BY Country
+Spark:
+spark.sql("SELECT COUNT(*), Country FROM Customer GROUP BY Country").show();
+
+d) the most common names that trigger the alerts
+
+SQL:
+SELECT FirstName, COUNT(FirstName), Id FROM Customer C
+INNER JOIN Alert A
+ON A.CustomerId = C.Id
+GROUP BY FirstName
+ORDER BY COUNT(FirstName)
+Spark:
+spark.sql("SELECT FirstName, COUNT(FirstName), Id FROM Customer C
+           INNER JOIN Alert A
+           ON A.CustomerId = C.Id
+           GROUP BY FirstName
+           ORDER BY COUNT(FirstName)").show();
