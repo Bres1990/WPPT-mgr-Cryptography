@@ -17,7 +17,7 @@ public class Islands {
         constructMatrix();
 
         int count = 0;
-        int currentCount = 0;
+        int currentCount;
 
         for (int x = 0; x < A.length; x++) {
             for (int y = 0; y < A[x].length; y++) {

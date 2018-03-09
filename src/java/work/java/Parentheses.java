@@ -3,7 +3,6 @@ package work.java;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Adam Poterałowicz
@@ -24,11 +23,11 @@ public class Parentheses {
             e.printStackTrace();
         }
 
-        System.out.println(isBalanced(input));
+        System.out.println("Parentheses are organized in an orderly fashion: " + isBalanced(input));
     }
 
     public static boolean isBalanced(String input) {
-        System.out.println(input.length());
+        System.out.println("Tested expression is of length " + input.length());
         int round_counter = 0;
         int square_counter = 0;
         for (int i = 0; i < input.length(); i++) {
