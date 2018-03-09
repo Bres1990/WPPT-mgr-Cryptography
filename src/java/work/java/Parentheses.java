@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Adam on 2018-03-06.
+ * Created by Adam Poterałowicz
  */
 public class Parentheses {
 

@@ -14,7 +14,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by Adam on 2018-03-06.
+ * Created by Adam Poterałowicz
  */
 public class TaskFactory {
 
