@@ -19,11 +19,8 @@ public class Parentheses {
         String input = null;
 
         try {
-
-            File file = null;
-            file = new File(Parentheses.class.getClassLoader().getResource("parentheses.txt").getFile());
-            input = FileUtils.readFileToString(file);
-        } catch (IOException e) {
+            input = FileUtils.readFileToString(new File(Parentheses.class.getClassLoader().getResource("parentheses.txt").getFile()));
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
