@@ -23,7 +23,7 @@ public class Islands {
             for (int y = 0; y < A[x].length; y++) {
                 if (A[x][y] == 1) {
                     currentCount = 1;
-                    count = count + clean_block(A, x, y, currentCount);
+                    count = count + cleanBlock(A, x, y, currentCount);
                 }
             }
         }
@@ -31,7 +31,7 @@ public class Islands {
         System.out.println("Count of islands: " + count);
     }
 
-    public static int clean_block(int[][] A, int x_in, int y_in, int currentCount) {
+    public static int cleanBlock(int[][] A, int x_in, int y_in, int currentCount) {
         A[x_in][y_in] = 0;
 
         searchForCoordinates(x_in - 1, y_in, currentCount);
@@ -48,9 +48,8 @@ public class Islands {
     public static void constructMatrix() {
 
         BufferedReader reader;
-        FileReader f1, f2 = null;
-        int columns = 0;
-        int rows = 0;
+        FileReader f1, f2;
+        int columns, rows;
 
         try {
             f1 = new FileReader("islands.txt");
@@ -60,6 +59,7 @@ public class Islands {
 
             String line;
             int lines = 0;
+
             while ((line = reader.readLine()) != null) {
                 writer.write(line.replaceAll("\\s", ""));
                 writer.write("\n");
@@ -76,10 +76,9 @@ public class Islands {
             reader.mark(1);
             line = reader.readLine();
             columns = line.length();
-
             A = new int[rows][columns];
-
             reader.reset();
+
             lines = 0;
             while ((line = reader.readLine()) != null) {
                 for (int i = 0; i < columns; i++) {
@@ -96,7 +95,7 @@ public class Islands {
 
     private static void searchForCoordinates(int x_in, int y_in, int currentCount) {
         if (coordinate_exists(x_in, y_in, A.length, A[0].length) == 1 && A[x_in][y_in] == 1) {
-            clean_block(A, x_in, y_in, currentCount);
+            cleanBlock(A, x_in, y_in, currentCount);
             currentCount = 1;
         }
     }
