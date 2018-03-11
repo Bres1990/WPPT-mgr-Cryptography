@@ -1,5 +1,7 @@
-package cryptography_2018.first;
+package cryptography_2018.first.first;
 
+import cryptography_2018.first.Generator;
+import cryptography_2018.first.Predictor;
 import org.ejml.simple.SimpleMatrix;
 
 /**
@@ -86,7 +88,6 @@ public class LCGPredictor extends Predictor {
         int x1 = series[0];
         int x2 = series[1];
         int b = (x2 - x1 * a) % m;
-        // TODO: przesuwać do odp. zakresu
         return b;
     }
 

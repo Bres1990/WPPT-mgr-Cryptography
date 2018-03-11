@@ -93,7 +93,7 @@ class ConsumerTask {
 
         while (true) {
             synchronized (this) {
-                while (TaskFactory.exercises.size() == 0) {
+                if (TaskFactory.exercises.size() == 0) {
                     System.out.println(name + ": No tasks left, waiting");
                     wait();
                 }

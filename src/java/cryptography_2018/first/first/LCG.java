@@ -1,5 +1,6 @@
-package cryptography_2018.first;
+package cryptography_2018.first.first;
 
+import cryptography_2018.first.Generator;
 import lombok.Getter;
 
 /**
