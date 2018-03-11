@@ -1,6 +1,6 @@
-package cryptography_2018.first.second;
+package cryptography_2018.L1.second;
 
-import cryptography_2018.first.Generator;
+import cryptography_2018.L1.Generator;
 
 import java.util.ArrayList;
 import java.util.List;

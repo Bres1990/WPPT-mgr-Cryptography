@@ -1,7 +1,7 @@
-package cryptography_2018.first.first;
+package cryptography_2018.L1.first;
 
-import cryptography_2018.first.Generator;
-import cryptography_2018.first.Predictor;
+import cryptography_2018.L1.Generator;
+import cryptography_2018.L1.Predictor;
 import org.ejml.simple.SimpleMatrix;
 
 /**

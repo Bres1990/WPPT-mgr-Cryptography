@@ -1,7 +1,7 @@
-package cryptography_2018.first.second;
+package cryptography_2018.L1.second;
 
-import cryptography_2018.first.Generator;
-import cryptography_2018.first.Predictor;
+import cryptography_2018.L1.Generator;
+import cryptography_2018.L1.Predictor;
 
 import java.util.ArrayList;
 
@@ -33,11 +33,5 @@ public class GLIBCPredictor extends Predictor {
         int p2 = (int) ((series.get(lastIndex-31) + series.get(lastIndex-3) + 1) % 2147483648L);
         series.add(p1);
         return new int[] { p1, p2 };
-    }
-
-    public static void main(String[] arg) {
-        GLIBC generator = new GLIBC();
-        GLIBCPredictor breaker = new GLIBCPredictor(generator, 10);
-        Predictor.guess(generator, breaker, 10);
     }
 }

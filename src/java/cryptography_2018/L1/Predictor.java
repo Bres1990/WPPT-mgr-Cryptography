@@ -1,4 +1,4 @@
-package cryptography_2018.first;
+package cryptography_2018.L1;
 
 import java.math.BigInteger;
 
