@@ -44,6 +44,8 @@ public class LCGPredictor extends Predictor {
                     {x3, x4, 1}
             });
 
+            // det M = x1 * x3 - x2 * x2
+
             m[i] = (long) matrix.determinant();
         }
 

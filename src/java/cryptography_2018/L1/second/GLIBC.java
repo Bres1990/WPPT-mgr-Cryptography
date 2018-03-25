@@ -40,9 +40,4 @@ public class GLIBC implements Generator {
         return (int) (tmp2 >> 1);
     }
 
-    public static void main(String[] args) {
-        GLIBC generator = new GLIBC();
-        for (int i = 0; i < 47; i++)
-            System.out.println(generator.getNext());
-    }
 }
