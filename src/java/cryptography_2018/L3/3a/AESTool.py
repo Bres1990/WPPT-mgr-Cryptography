@@ -4,13 +4,15 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
 def AESTool(aesMode, keytool, keyId, action, filename):
-	key = readKeystore(keytool)
-
-	if (aesMode == "CBC" or aesMode == "OFB" or aesMode == "CTR"):
-		if (action == "Encrypt"):
-			Encrypt(filename, chooseMode(aesMode, key))
-		elif (action == "Decrypt"):
-			Decrypt(filename, chooseMode(aesMode, key))
+	key = readKeystore(keytool, keyId)
+	if key is None:
+		print("Invalid keyId!")
+	else:
+		if (aesMode == "CBC" or aesMode == "OFB" or aesMode == "CTR"):
+			if (action == "Encrypt"):
+				Encrypt(filename, chooseMode(aesMode, key))
+			elif (action == "Decrypt"):
+				Decrypt(filename, chooseMode(aesMode, key))
 
 # AES mode has to be re-initialised for each Enc/Dec operation
 def chooseMode(mode, key):
@@ -23,12 +25,12 @@ def chooseMode(mode, key):
 	return _mode
 
 # AES key needs to be exactly 16, 24 or 32 bytes
-def readKeystore(keytool):
+def readKeystore(keytool, keyId):
 	ks = jks.KeyStore.load(keytool, "keystore")
 	for alias, pk in ks.private_keys.items():
-		print("Private key: %s" % "\r\n".join(textwrap.wrap(base64.b64encode(pk.pkey_pkcs8[:16]).decode('ascii'), 64)))
-
-	return pk.pkey_pkcs8[:16] # 16 bytes key
+		if (alias == keyId):
+			print("Private key: %s" % "\r\n".join(textwrap.wrap(base64.b64encode(pk.pkey_pkcs8[:16]).decode('ascii'), 64)))
+			return pk.pkey_pkcs8[:16] # 16 bytes key
 
 # "a" permission enables file editing (Encrypt may be called multiple times).
 # "w" would truncate the file every time it's called
@@ -68,7 +70,7 @@ if (action == 'Encrypt' and encryptionMode == 'oracle'):
 		filenames.append(filename)
 
 	for j in range(0, len(filenames)):
-		AESTool(aesMode, "keystore.jks", "", action, filenames[j])
+		AESTool(aesMode, "keystore.jks", "keystore", action, filenames[j])
 
 elif (action == 'Encrypt' and encryptionMode == 'challenge'):
 	for _ in range(2):
@@ -76,7 +78,7 @@ elif (action == 'Encrypt' and encryptionMode == 'challenge'):
 		filename = askopenfilename()
 		filenames.append(filename)
 
-	AESTool(aesMode, "keystore.jks", "", action, random.choice(filenames))
+	AESTool(aesMode, "keystore.jks", "keystore", action, random.choice(filenames))
 
 elif (action == 'Decrypt'):
-	AESTool(aesMode, "keystore.jks", "", action, 'encrypted.txt')
+	AESTool(aesMode, "keystore.jks", "keystore", action, 'encrypted.txt')
